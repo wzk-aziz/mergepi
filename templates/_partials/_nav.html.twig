@@ -11,7 +11,7 @@
 
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active">
+				<li class="nav-item">
 					<a href="{{ path('app_front') }}" class="nav-link">Home</a>
 				</li>
 				<li class="nav-item">
@@ -26,8 +26,23 @@
 				<li class="nav-item">
 					<a href="{{ path('app_front') }}" class="nav-link">Events</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item dropdown active">
 					<a href="{{ path('app_front') }}" class="nav-link">Profile</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						{% if app.user %}
+                		<a class="dropdown-item" href="{{ path('app_user_showuser') }}"> my profile </a>
+						
+    					<a class="dropdown-item" href="{{ path('app_user_edituser', {'id': user.id}) }}">edit profile</a>
+						<a class="dropdown-item" href="{{ path('app_logout') }}">log out</a>
+						{% if app.user and is_granted('ROLE_ADMIN') %}
+						<a class="dropdown-item" href="{{ path('app_back') }}">backend</a>
+						{% endif %}
+						{% else %}
+						<a class="dropdown-item" href="{{ path('app_register') }}">register</a>
+						<a class="dropdown-item" href="{{ path('app_login') }}"> login </a>
+						{% endif %}
+						
+					</div>
 				</li>
 				<li class="nav-item">
 					<a href="{{ path('app_front') }}" class="nav-link">Contact</a>

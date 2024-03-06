@@ -1,0 +1,207 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="hero-wrap ftco-degree-bg" style="background-image: url('{{ asset('assetsfront/images/hi2.jpg') }}');" data-stellar-background-ratio="0.5">    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+        <div class="col-lg-8 ftco-animate">
+            <div class="text w-100 text-center mb-md-5 pb-md-5">
+              <h1 class="mb-4">scroll a bit down to register to our site &amp; Enjoy the experience</h1>
+              <p style="font-size: 18px;">we have hundred and thousand of user enter our site every day since 2024</p>
+              <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                      <span class="ion-ios-play"></span>
+                  </div>
+                  <div class="heading-title ml-5">
+                      <span>Easy steps to trades equipements and jobs</span>
+                  </div>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <section class="ftco-section ftco-no-pt bg-light">
+      <div class="container">
+          <div class="row no-gutters">
+              <div class="col-md-12	featured-top">
+                  <div class="row no-gutters">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <div class="request-form ftco-animate bg-primary">
+                                {{ form_start(registrationForm, { 'attr': {'novalidate': 'novalidate'} }) }}
+                        <h2>Make your trip</h2>
+                        <table>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                {{ form_label(registrationForm.email) }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                {{ form_widget(registrationForm.email) }}
+                                {{ form_errors(registrationForm.email) }}
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                {{ form_label(registrationForm.Password.first, 'Password') }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                {{ form_widget(registrationForm.Password.first) }}
+                                {{ form_errors(registrationForm.Password.first) }}
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                {{ form_label(registrationForm.Password.second, 'repeat password') }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                {{ form_widget(registrationForm.Password.second) }}
+                                {{ form_errors(registrationForm.Password.second) }}
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                {{ form_label(registrationForm.name) }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                {{ form_widget(registrationForm.name) }}
+                                {{ form_errors(registrationForm.name) }}
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                {{ form_label(registrationForm.firstname) }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                {{ form_widget(registrationForm.firstname) }}
+                                {{ form_errors(registrationForm.firstname) }}
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                {{ form_label(registrationForm.age) }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                {{ form_widget(registrationForm.age) }}
+                                {{ form_errors(registrationForm.age) }}
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                {{ form_label(registrationForm.phone) }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                {{ form_widget(registrationForm.phone) }}
+                                {{ form_errors(registrationForm.phone) }}
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                {{ form_label(registrationForm.profession) }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                {{ form_widget(registrationForm.profession) }}
+                                {{ form_errors(registrationForm.profession) }}
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                {{ form_label(registrationForm.agreeTerms) }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                {{ form_widget(registrationForm.agreeTerms) }}
+                                {{ form_errors(registrationForm.agreeTerms) }}
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+
+
+                                      
+                                    
+                                    
+                                    </div>
+                        </div>
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div class="services-wrap rounded-right w-100">
+                                <h3 class="heading-section mb-4">Better Way to upgrade ur car and go further with us</h3>
+                                <div class="row d-flex mb-4">
+                            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                              <div class="services w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+                                <div class="text w-100">
+                                  <h3 class="heading mb-2">select ur working site</h3>
+                              </div>
+                              </div>      
+                            </div>
+                            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                              <div class="services w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
+                                <div class="text w-100">
+                                  <h3 class="heading mb-2">Select the Best Deal</h3>
+                                </div>
+                              </div>      
+                            </div>
+                            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                              <div class="services w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+                                <div class="text w-100">
+                                  <h3 class="heading mb-2">exchange the parts u dont need for ones u do</h3>
+                                  {% block captcha_widget %}
+                                  {{ form_widget(registrationForm.captcha) }}
+                                  {% endblock %}
+                                </div>
+                              </div>      
+                            </div>
+                          </div>
+                          
+                          <button type="submit" class="btn btn-primary py-3 px-4">Register</button>
+                          {{ form_end(registrationForm) }}
+                            </div>
+                        </div>
+                    </div>
+              </div>
+        </div>
+  </section>
+
+
+
+    
+{% endblock %}

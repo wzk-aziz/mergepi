@@ -1,0 +1,123 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+<div class="hero-wrap ftco-degree-bg" style="background-image: url('{{ asset('assetsfront/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">    <div class="overlay"></div>
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+        <div class="col-md-9 ftco-animate pb-5">
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>profile <i class="ion-ios-arrow-forward"></i></span></p>
+          <h1 class="mb-3 bread">edit profile</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+<br><br><br><br><br><br><br>
+  <section class="ftco-section contact-section">
+    <div class="container">
+      <div class="row d-flex mb-5 contact-info">
+          <div class="col-md-4">
+              <div class="row mb-5">
+                <div class="col-md-12">
+                    
+                </div>
+                <div class="col-md-12">
+                    
+                </div>
+                <div class="col-md-12">
+                    
+                </div>
+              </div>
+        </div>
+        <div class="col-md-8 block-9 mb-md-5">
+            {{ form_errors(form) }}
+          <div class="bg-dark p-5 contact-form">
+            {{ form_errors(form) }}
+
+                  {{ form_start(form, { 'attr': {'novalidate': 'novalidate'} }) }}
+                  <h1>Edit User</h1>
+            <table>
+                <tr>
+                    <td>
+                      <div class="form-group">
+                        {{ form_label(form.email, null, {'label_attr': {'class': 'black-label'}}) }}
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.email, {'attr': {'class': 'black-error'}}) }}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-group">
+                        {{ form_label(form.name, null, {'label_attr': {'class': 'black-label'}}) }}
+                        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.name, {'attr': {'class': 'black-error'}}) }}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-group">
+                        {{ form_label(form.firstname, null, {'label_attr': {'class': 'black-label'}}) }}
+                        {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.firstname, {'attr': {'class': 'black-error'}}) }}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-group">
+                        {{ form_label(form.age, null, {'label_attr': {'class': 'black-label'}}) }}
+                        {{ form_widget(form.age, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.age, {'attr': {'class': 'black-error'}}) }}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-group">
+                        {{ form_label(form.phone, null, {'label_attr': {'class': 'black-label'}}) }}
+                        {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.phone, {'attr': {'class': 'black-error'}}) }}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-group">
+                        {{ form_label(form.profession, null, {'label_attr': {'class': 'black-label'}}) }}
+                        {{ form_widget(form.profession, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.profession, {'attr': {'class': 'black-error'}}) }}
+                      </div>
+                    </td>
+                  </tr>
+                    <th></th>
+                    <td><button type="update" class="btn btn-primary py-3 px-4">Update</button></td>
+                    <td></td>
+                </tr>
+              </table>
+              
+              {{ form_end(form) }}
+              </table>
+        
+        </div>
+      </div>
+      <div class="row justify-content-center">
+          <div class="col-md-12">
+              <div id="map" class="bg-white"></div>
+          </div>
+      </div>
+    </div>
+  </section>
+    
+    
+
+
+
+
+    {#<a href="{{ path('app_user_showall') }}">back to list</a>#}
+
+    {#{{ include('user/_delete_form.html.twig') }}#}
+{% endblock %}

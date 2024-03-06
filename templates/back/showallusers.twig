@@ -1,0 +1,52 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>User index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                {#<th>Roles</th>#}
+                <th>Password</th>
+                <th>Name</th>
+                <th>Firstname</th>
+                <th>Createdat</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Profession</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                {#<td>{{ user.password }}</td>#}
+                <td>{{ user.name }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.createdat ? user.createdat|date('Y-m-d') : '' }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.profession }}</td>
+                <td>
+                    <a href="{{ path('app_user_showback', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('app_user_editback', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('app_user_deletetool', {'id': user.id}) }}">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_registerback') }}">Create new</a>
+{% endblock %}
