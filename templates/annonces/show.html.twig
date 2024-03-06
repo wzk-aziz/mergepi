@@ -1,0 +1,151 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+
+<div class="container mt-5">
+    
+    <style>
+   /* Styles pour le tableau */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Styles pour les en-têtes de colonne */
+th {
+    background-color: #f2f2f2;
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styles pour les cellules de données */
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styles pour les lignes alternées */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Styles pour les liens dans le tableau */
+td a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+td a:hover {
+    color: #0056b3;
+}
+
+/* Effet de survol pour les cellules de données */
+td:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transition: background-color 0.3s;
+}
+
+    </style>
+
+    <table class="table">
+        <tbody>
+            
+            <tr>
+                <th>Titre</th>
+                <td>{{ annonce.titre }}</td>
+            </tr>
+            <tr>
+                <th>Datedepub</th>
+                <td>{{ annonce.datedepub ? annonce.datedepub|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ annonce.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <style>
+    
+      </div>
+    /* Styles pour les liens */
+a {
+    color: #007bff; /* Couleur du lien */
+    text-decoration: none; /* Supprimer le soulignement par défaut */
+    margin-right: 10px; /* Espacement entre les liens */
+}
+
+/* Style au survol du lien */
+a:hover {
+    text-decoration: underline; /* Souligner le lien au survol */
+}
+/* Styles pour les liens */
+a {
+    color: #007bff; /* Couleur du lien */
+    text-decoration: none; /* Supprimer le soulignement par défaut */
+    font-weight: bold; /* Mettre en gras */
+    display: inline-block; /* Pour appliquer les propriétés de taille et de marge */
+    padding: 10px 20px; /* Espacement interne */
+    margin-right: 10px; /* Espacement entre les liens */
+    border: 2px solid transparent; /* Bordure transparente */
+    border-radius: 25px; /* Bordures arrondies */
+    transition: all 0.3s ease; /* Transition fluide */
+    position: relative; /* Position relative pour les effets */
+}
+
+/* Effet de survol */
+a:hover {
+    background-color: #007bff; /* Changement de couleur de fond au survol */
+    color: #fff; /* Changement de couleur du texte au survol */
+    border-color: #007bff; /* Changement de couleur de la bordure au survol */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); /* Ombre portée au survol */
+}
+
+/* Style pour le texte avant le lien (icône par exemple) */
+a::before {
+    content: '\f054'; /* Code de l'icône, à remplacer par le vôtre */
+    font-family: 'Font Awesome'; /* Famille de police de l'icône */
+    margin-right: 5px; /* Espacement entre l'icône et le texte */
+    position: absolute; /* Position absolue pour positionner l'icône */
+    left: -30px; /* Décalage à gauche pour placer l'icône à côté du lien */
+    transition: all 0.3s ease; /* Transition fluide */
+}
+
+/* Effet de survol pour l'icône */
+a:hover::before {
+    transform: translateX(-5px); /* Translation vers la gauche au survol */
+}
+/* CSS pour styliser le bouton de suppression */
+.delete-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+
+    </style>
+
+    <a href="{{ path('app_annonces_index') }}">back to list</a>
+
+    <a href="{{ path('app_annonces_edit', {'id': annonce.id}) }}">edit</a>
+    
+{% include "component/_share.html.twig" %}
+
+
+    {{ include('annonces/_delete_form.html.twig') }}
+  
+{% endblock %}

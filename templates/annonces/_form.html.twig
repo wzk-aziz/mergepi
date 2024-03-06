@@ -1,0 +1,64 @@
+{# templates/your_template.html.twig #}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+<div class="form-group">
+    <label for="{{ form.titre.vars.id }}" class="form-label">Titre</label>
+    {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.titre) }}
+</div>
+<div class="form-group">
+    <label for="{{ form.description.vars.id }}" class="form-label">Description</label>
+    {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.description) }}
+</div>
+<div class="form-group">
+    {% block captcha_widget %}
+    {{form_widget(form.captcha)}}
+    {% endblock %}
+</div>
+
+<button type="submit" class="btn btn-primary">Enregistrer</button>
+{{ form_end(form) }}
+
+{{ form_end(form) }}
+
+
+
+
+<style>
+
+
+
+
+
+<style>
+/* Custom CSS for form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+</style>

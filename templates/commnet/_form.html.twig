@@ -1,0 +1,96 @@
+{# templates/your_template.html.twig #}
+
+<div class="form-container">
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    <div class="form-group">
+        {{ form_label(form.contenu, 'Contenu', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.contenu, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le contenu'}}) }}
+        {{ form_errors(form.contenu) }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+   
+<div class="form-group">
+    {% block captcha_widget %}
+    {{form_widget(form.captcha)}}
+    {% endblock %}
+</div>
+</div>
+ {{ form_end(form) }}
+
+<style>
+    /* Form container styles */
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form label styles */
+    .form-label {
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    /* Form input styles */
+    .form-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    /* Button styles */
+    .form-button {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Date input styles */
+    .form-date-input {
+        width: calc(100% - 120px); /* Adjust width to accommodate the date picker button */
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 16px;
+        float: left;
+    }
+
+    /* Date picker button styles */
+    .date-picker-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 12px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        float: right;
+        transition: background-color 0.3s ease;
+    }
+
+    .date-picker-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+

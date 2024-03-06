@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error:', error));
     }
 });
+<<<<<<< HEAD
 
 // Path: public/assetsfront/js/search.js
 // Author:laaroussi ya azeu
+=======
+>>>>>>> origin/aziz

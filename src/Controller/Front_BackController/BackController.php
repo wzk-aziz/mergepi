@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+<<<<<<< HEAD
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -20,12 +21,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+=======
+use App\Repository\AnnoncesRepository;
+>>>>>>> origin/aziz
 
 #[Route('/back')]
 class BackController extends AbstractController
 {
+<<<<<<< HEAD
     #[Route('/', name: 'app_back')]
     public function index(Security $security): Response
+=======
+    #[Route('/back', name: 'app_back')]
+    public function index(AnnoncesRepository $annoncesRepository): Response
+>>>>>>> origin/aziz
     {
         $user = $security->getUser();
         if (!$user || !$security->isGranted('ROLE_ADMIN')) {
@@ -33,6 +42,7 @@ class BackController extends AbstractController
         }
         return $this->render('back/index.html.twig', [
             'controller_name' => 'BackController',
+            'annonces' => $annoncesRepository->findAll(),
         ]);
 }
 
