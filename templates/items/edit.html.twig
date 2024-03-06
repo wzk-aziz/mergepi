@@ -1,0 +1,31 @@
+{% extends 'Front.html.twig' %}
+
+{% block title %}
+	Edit Items
+{% endblock %}
+
+{% block body %}
+	<header class="bg-dark position-relative overflow-hidden" style="height: 100px;">
+		<div class="container h-100">
+			<div
+				class="d-flex h-100 align-items-center justify-content-center"><!-- You can add any content you want here, such as a logo or site title -->
+			</div>
+		</div>
+	</header>
+
+	<div style="margin-bottom: 10px;">
+		{{ include('items/_form.html.twig', {'button_label': 'Update'}) }}
+
+		<div class="row" style="margin-top: 10px;">
+			<div class="col-md-6">
+				<a href="{{ path('app_items_index') }}" class="btn btn-secondary btn-block mb-2">Back to List</a>
+			</div>
+			<div class="col-md-6">
+				<form method="post" action="{{ path('app_items_delete', {'id': item.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+					<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ item.id) }}">
+					<button type="submit" class="btn btn-danger btn-block">Delete</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

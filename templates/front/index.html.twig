@@ -10,7 +10,11 @@
 	<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			{% set slide_count = 0 %}
+<<<<<<< HEAD
 			{% for image in ['bg_1.jpg', 'hi.jpg', 'bg_3.jpg'] %}
+=======
+			{% for image in ['bg_1.jpg', 'bg_2.jpg', 'bg_3.jpg'] %}
+>>>>>>> origin/laaroussi-items
 				{% set active_class = slide_count == 0 ? 'active' : '' %}
 				<div class="carousel-item {{ active_class }}">
 					<img src="{{ asset('assetsfront/images/' ~ image) }}" class="d-block w-100" alt="Slide {{ slide_count + 1 }}">

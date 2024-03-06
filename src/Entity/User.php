@@ -3,6 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+<<<<<<< HEAD
+=======
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+>>>>>>> origin/laaroussi-items
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -52,7 +57,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         max: 50,
         minMessage: 'this cant be ur first name too short',
         maxMessage: "man can't be real too long to be a first name",
+<<<<<<< HEAD
         )]
+=======
+    )]
+>>>>>>> origin/laaroussi-items
     private ?string $firstname = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -86,6 +95,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     )]
     private ?string $profession = null;
 
+<<<<<<< HEAD
+=======
+    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Inventory::class)]
+    private Collection $inventories;
+
+>>>>>>> origin/laaroussi-items
     public function getId(): ?int
     {
         return $this->id;
@@ -127,6 +142,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
+<<<<<<< HEAD
+=======
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+>>>>>>> origin/laaroussi-items
         return array_unique($roles);
     }
 
@@ -203,6 +224,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->createdat = new \DateTime(); // Assigns the current system date and time to the property
+<<<<<<< HEAD
+=======
+        $this->inventories = new ArrayCollection();
+>>>>>>> origin/laaroussi-items
     }
     public function setCreatedat(\DateTimeInterface $createdat): static
     {
@@ -246,4 +271,37 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * @return Collection<int, Inventory>
+     */
+    public function getInventories(): Collection
+    {
+        return $this->inventories;
+    }
+
+    public function addInventory(Inventory $inventory): static
+    {
+        if (!$this->inventories->contains($inventory)) {
+            $this->inventories->add($inventory);
+            $inventory->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInventory(Inventory $inventory): static
+    {
+        if ($this->inventories->removeElement($inventory)) {
+            // set the owning side to null (unless already changed)
+            if ($inventory->getUser() === $this) {
+                $inventory->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+>>>>>>> origin/laaroussi-items
 }
