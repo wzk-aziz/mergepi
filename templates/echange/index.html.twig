@@ -1,0 +1,55 @@
+{% extends 'Back.html.twig' %}
+
+{% block title %}Echange{% endblock %}
+
+
+{% block body %}
+    <h1>Echange </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+              
+                <th>Id</th> 
+                <th>Etat</th>
+                <th>Offre</th>
+                <th>image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for echange in echanges %}
+            <tr>
+
+               
+                <td>{{ echange.id }}</td>  
+                <td>{{ echange.etat }}</td>
+                <td>{{ echange.offre }}</td>
+                <td>
+                {% if echange.image %}
+                <img src="{{ asset('assetsfront/uploads/' ~ echange.image) }}" style="width: 20%; height: 20%;" alt="Echange Image" class="img-fluid">
+                {% else %}
+                 <p>No image available</p>
+                {% endif %}
+                </td>    
+                
+                <td>
+                    
+                    <a href="{{ path('app_echange_edit', {'id': echange.id}) }}">edit</a>
+                </td>
+                 <td>
+                    
+                    <a href="{{ path('app_echange_show', {'id': echange.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">pas de contenu</td>
+            </tr>
+        {% endfor %}
+        
+        </tbody>
+    </table>
+
+{% endblock %}

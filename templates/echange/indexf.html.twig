@@ -1,0 +1,42 @@
+{% extends 'Front.html.twig' %}
+
+{% block title %}Echange{% endblock %}
+
+
+{% block body %}
+    <h1>Echange </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+
+                <th>Id</th>
+                <th>Etat</th>
+                <th>Offre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for echange in echanges %}
+            <tr>
+
+                <td>{{ echange.id }}</td>
+                <td>{{ echange.etat }}</td>
+                <td>{{ echange.offre }}</td>
+                <td>
+                    
+                    <a href="{{ path('app_echange_edit', {'id': echange.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">pas de contenu</td>
+            </tr>
+        {% endfor %}
+        
+        </tbody>
+    </table>
+
+
+{% endblock %}

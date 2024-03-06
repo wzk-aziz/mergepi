@@ -1,3 +1,8 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+mail_route:
+    path: /mail
+    controller: App\Controller\MailerController::index # Replace 'MailController::index' with your actual controller and action
+    methods: [GET] # Define allowed HTTP methods

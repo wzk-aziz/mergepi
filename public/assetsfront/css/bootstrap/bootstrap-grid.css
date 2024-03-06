@@ -299,6 +299,7 @@ html {
     flex: 0 0 33.33333%;
     max-width: 33.33333%; }
   .col-sm-5 {
+    color: red;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 41.66667%;
     flex: 0 0 41.66667%;

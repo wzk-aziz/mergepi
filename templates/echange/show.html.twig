@@ -1,0 +1,55 @@
+{% extends 'Back.html.twig' %}
+
+{% block title %}Echange{% endblock %}
+
+{% block body %}
+<div class="container-fluid bg-dark">
+        <div class="hero-wrap ftco-degree-bg" style="background-image: url('{{ asset('assetsfront/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5"></div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+    <h1>Echange</h1>
+<div>
+
+</div>
+
+    <table class="table" >
+        <tbody>
+            
+            <tr>
+                <th>Etat</th>
+                <td>{{ echange.etat }}</td>
+            </tr>
+            <tr>
+                <th>Offre</th>
+                <td>{{ echange.offre }}</td>
+            </tr>
+             <tr>
+                <th>image</th>
+                <td> {% if echange.image %}
+                <img src="{{ asset('assetsfront/uploads/' ~ echange.image) }}" style="width: 20%; height: 20%;" alt="Echange Image" class="img-fluid">
+                {% else %}
+                 <p>No image available</p>
+                {% endif %}</td>
+            </tr>
+        
+    <tr>
+<td>
+    <a href="{{ path('app_echange_index') }}">back </a>
+    <a href="{{ path('app_echange_edit', {'id': echange.id}) }}">update</a>
+     <a href="{{ path('app_echange_delete', {'id': echange.id}) }}">delete</a>
+    
+</td>
+</tr> 
+ 
+    
+    </tbody>
+    </table>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+
