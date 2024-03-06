@@ -1,0 +1,42 @@
+{% extends 'Back.html.twig' %}
+
+{% block title %}Commnet index{% endblock %}
+
+{% block body %}
+    <h1></h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                            
+                <th>Id</th>
+                <th>Id annonce</th>
+                <th>Contenu</th>
+                <th>Datecommnt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commnet in commnets %}
+            <tr>
+               
+
+                <td>{{ commnet.id }}</td>
+                <td>  <a href="/annonces/{{commnet.annonces.id}}">{{ commnet.annonces.id }}</a> </td>
+                <td>{{ commnet.contenu }}</td>
+                <td>{{ commnet.datecommnt ? commnet.datecommnt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_commnetback_show', {'id': commnet.id}) }}">voir</a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+{% endblock %}

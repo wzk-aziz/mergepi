@@ -1,0 +1,188 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Commnet Index{% endblock %}
+
+{% block body %}
+    <div class="container-fluid bg-dark">
+        <div class="hero-wrap ftco-degree-bg" style="background-image: url('{{ asset('assetsfront/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5"></div>
+        <!-- About section -->
+        <section class="ftco-section ftco-about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url('{{ asset('assets/images/about.jpg') }}'); min-height: 10px;"></div>
+                    <div class="col-md-6">
+                        <div class="heading-section pl-md-5">
+                            <h2 class="mb-4">Liste des commentaires</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="input-group search-area">
+            <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+            <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+        </div>
+
+        <script>
+            function filterCommnets() {
+                const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+                const commnets = document.querySelectorAll('.commnet-item');
+
+                commnets.forEach(commnet => {
+                    const content = commnet.querySelector('.commnet-content').textContent.trim().toLowerCase();
+                    const date = commnet.querySelector('.commnet-date').textContent.trim().toLowerCase();
+                    const visible = content.includes(searchTerm) || date.includes(searchTerm);
+                    commnet.style.display = visible ? '' : 'none';
+                });
+            }
+
+            document.getElementById('searchInput').addEventListener('input', filterCommnets);
+        </script>
+
+        <div class="commnet-list">
+            {% if pagination is not empty %}
+                <ul class="commnet-items">
+                    {% for commnet in pagination %}
+                        <li class="commnet-item">
+                            <div class="commnet-content">
+                                <p>{{ commnet.contenu }}</p>
+                                <span class="commnet-date">Publié le {{ commnet.datecommnt ? commnet.datecommnt|date('Y-m-d H:i:s') : '' }}</span>
+                            </div>
+
+                            <div class="commnet-actions">
+                                <button class="btn btn-icon like-button" style="color: grey !important;">
+                                    <a href="{{ path('app_commnet_like_commnet', {'id': commnet.id}) }}">
+                                        <i class="fa fa-thumbs-o-up"></i>
+                                    </a>
+                                </button>
+                                <a href="{{ path('app_commnet_show', {'id': commnet.id}) }}" class="btn btn-info">voir</a>
+                                <a href="{{ path('app_commnet_edit', {'id': commnet.id}) }}" class="btn btn-primary">modifier</a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No records found</p>
+            {% endif %}
+        </div>
+
+        <a href="{{ path('app_annonces_index') }}" class="custom-button">retourner au annonces</a>
+    </div>
+
+    <ul class="pagination">
+        {{ knp_pagination_render(pagination) }}
+    </ul>
+
+<style>
+    /* Advanced CSS styles */
+    .commnet-list {
+        margin-top: 20px;
+    }
+
+    .commnet-item {
+        background-color: #ffffff;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .commnet-content {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .commnet-date {
+        color: #666666;
+        font-size: 14px;
+    }
+
+    .commnet-actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        margin-left: 10px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-decoration: none;
+    }
+
+    .btn.btn-info {
+        background-color: #17a2b8;
+        color: white;
+    }
+
+    .btn.btn-primary {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn:hover {
+        background-color: #4caf50;
+    }
+
+    .custom-button {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        border: 2px solid #007bff;
+        border-radius: 8px;
+        background-color: transparent;
+        color: #007bff;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        text-decoration: none;
+    }
+
+    .custom-button:hover {
+        background-color: #007bff;
+        color: white;
+    }
+</style>
+<style>
+    /* Pagination styles */
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+    }
+
+    .pagination li {
+        margin-right: 5px;
+    }
+
+    .pagination a,
+    .pagination span {
+        color: #007bff;
+        text-decoration: none;
+        padding: 8px 12px;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .pagination a:hover,
+    .pagination span:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .pagination .active a,
+    .pagination .active span {
+        background-color: #007bff;
+        color: #fff;
+        cursor: default;
+    }
+</style>
+
+{% endblock %}

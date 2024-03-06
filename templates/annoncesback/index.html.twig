@@ -1,0 +1,40 @@
+{% extends 'Back.html.twig' %}
+
+{% block title %}Annonces index{% endblock %}
+
+{% block body %}
+    <h1></h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Datedepub</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for annonce in annonces %}
+            <tr>
+                <td>{{ annonce.id }}</td>
+                <td>{{ annonce.titre }}</td>
+                <td>{{ annonce.datedepub ? annonce.datedepub|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ annonce.description }}</td>
+                <td>
+                    <a href="{{ path('app_annoncesback_show', {'id': annonce.id}) }}">voir</a>
+                   
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<a href="{{ path('app_annoncesback_tri', { 'order': 'asc' }) }}">Tri croissant</a>
+<a href="{{ path('app_annoncesback_tri', { 'order': 'desc' }) }}">Tri décroissant</a>
+    
+{% endblock %}

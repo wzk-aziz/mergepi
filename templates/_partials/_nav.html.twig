@@ -2,8 +2,40 @@
 <nav
 	class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	<!-- Navbar content... -->
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Other CSS files... -->
+    <style>
+        /* Navbar styles */
+        .navbar {
+            background-color: black;
+            color: white; /* Set text color to white for better contrast */
+        }
+
+        /* Customize other navbar styles as needed */
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <!-- Navbar content -->
+</nav>
+
+<!-- Other content of your page -->
+<div class="container">
+    <!-- Your page content goes here -->
+</div>
+
+</body>
+</html>
+
 	<div class="container">
-		<a class="navbar-brand" href="index.html">Khoud&<span>Het</span>
+		<a class="navbar-brand" href="/">Khoud&<span>Het</span>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="oi oi-menu"></span>
@@ -15,23 +47,24 @@
 					<a href="{{ path('app_front') }}" class="nav-link">Home</a>
 				</li>
 				<li class="nav-item">
-					<a href="{{ path('app_front') }}" class="nav-link">About</a>
+					<a href="{{ path('app_annonces_index') }}" class="nav-link">annonce</a>
 				</li>
 				<li class="nav-item">
-					<a href="{{ path('app_front') }}" class="nav-link">Inventory</a>
+					<a href="{{ path('app_commnet_index') }}" class="nav-link">commentaire</a>
 				</li>
 				<li class="nav-item">
-					<a href="{{ path('app_front') }}" class="nav-link">Exchange</a>
+					<a href="{{ path('app_front') }}" class="nav-link">Echange</a>
 				</li>
 				<li class="nav-item">
-					<a href="{{ path('app_front') }}" class="nav-link">Events</a>
+					<a href="{{ path('app_front') }}" class="nav-link">evenement</a>
 				</li>
 				<li class="nav-item">
 					<a href="{{ path('app_front') }}" class="nav-link">Profile</a>
 				</li>
 				<li class="nav-item">
-					<a href="{{ path('app_front') }}" class="nav-link">Contact</a>
+					<a href="{{ path('app_front') }}" class="nav-link">reclamation</a>
 				</li>
+				
 			</ul>
 
 		</div>

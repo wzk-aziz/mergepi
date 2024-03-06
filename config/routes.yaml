@@ -1,3 +1,3 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+app_annoncesback_show:
+    path: '/annoncesback/{id}'
+    controller: 'App\Controller\AnnoncesbackController::show'
