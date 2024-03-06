@@ -1,0 +1,30 @@
+{% extends 'Front.html.twig' %}
+
+{% block title %}New Inventory
+{% endblock %}
+
+{% block body %}
+	<header class="bg-dark position-relative overflow-hidden" style="height: 100px;">
+		<div class="container h-100">
+			<div
+				class="d-flex h-100 align-items-center justify-content-center"><!-- You can add any content you want here, such as a logo or site title -->
+			</div>
+		</div>
+	</header>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-8 col-lg-6">
+				<h1 class="text-right mb-5">Create new Inventory</h1>
+			</div>
+		</div>
+		{{ include('inventory/_form.html.twig') }}
+		<div class="row justify-content-center mt-3">
+			<div class="col-md-8 col-lg-6">
+
+				<a href="{{ path('app_inventory_index') }}" class="btn btn-secondary w-100">Back to list</a>
+			</div>
+		</div>
+	</div>
+
+
+</div>{% endblock %}

@@ -17,8 +17,15 @@
 				<li class="nav-item">
 					<a href="{{ path('app_front') }}" class="nav-link">About</a>
 				</li>
-				<li class="nav-item">
-					<a href="{{ path('app_front') }}" class="nav-link">Inventory</a>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Inventory
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="{{ path('app_inventory_index') }}">View Inventory</a>
+						<a class="dropdown-item" href="{{ path('app_items_index') }}">View Items</a>
+						
+					</div>
 				</li>
 				<li class="nav-item">
 					<a href="{{ path('app_front') }}" class="nav-link">Exchange</a>
