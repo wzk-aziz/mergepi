@@ -1,0 +1,70 @@
+{% for event in results %}
+    <tr>
+       <td>{{ event.eventName }}</td>
+                        <td>{{ event.capacity }}</td>
+                        <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
+                        <td>{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</td>
+                        <td>{{ event.place }}</td>
+                        <td>{{ event.description }}</td>
+        <td>
+            <form action="{{ path('app_event_show', {'id': event.id}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+            <form action="{{ path('app_event_edit', {'id': event.id}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+        </td>
+    </tr>
+{% else %}
+
+            {% for event in results2 %}
+                <tr>
+                 <td>{{ event.eventName }}</td>
+                        <td>{{ event.capacity }}</td>
+                        <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
+                        <td>{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</td>
+                        <td>{{ event.place }}</td>
+                        <td>{{ event.description }}</td>
+                    <td>
+                        <form action="{{ path('app_event_show', {'id': event.id}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+                        <form action="{{ path('app_event_edit', {'id': event.id}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+                    </td>
+                </tr>
+            {% else %}
+
+                         
+                                    {% for event in results3 %}
+                                    <tr>
+                                         <td>{{ event.eventName }}</td>
+                        <td>{{ event.capacity }}</td>
+                        <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
+                        <td>{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</td>
+                        <td>{{ event.place }}</td>
+                        <td>{{ event.description }}</td>
+                                        <td>
+                                            <form action="{{ path('app_event_show', {'id': event.id}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+                                            <form action="{{ path('app_event_edit', {'id': event.id}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+                                        </td>
+                                    </tr>
+                                {% else %}
+
+                                            {% for event in results4 %}
+                                            <tr>
+                                                    <td>{{ event.eventName }}</td>
+                        <td>{{ event.capacity }}</td>
+                        <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
+                        <td>{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</td>
+                        <td>{{ event.place }}</td>
+                        <td>{{ event.description }}</td>
+                                                    <td>
+                                                        <form action="{{ path('app_event_show', {'id': event.id}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+                                                        <form action="{{ path('app_event_edit', {'id': event.id}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+                                                    </td>
+                                                </tr>
+                                            {% else %}
+   
+                                                                                    <tr>
+                                                                                        <td colspan="3">no records found</td>
+                                                                                    </tr>
+                                                                       
+                                                {% endfor %}
+                                    {% endfor %}
+                        {% endfor %}
+            {% endfor %}
+  {% endfor %}

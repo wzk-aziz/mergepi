@@ -1,0 +1,19 @@
+{% extends 'Front.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+
+{% block body %}
+<div class="container-fluid mt-5 mb-5"> <!-- Ajout des marges pour éloigner du navbar et du footer -->
+    <div class="row justify-content-center align-items-center" style="height: 80vh;"> <!-- Centrage vertical et horizontal -->
+        <div class="col-md-6">
+            <div class="card">
+                <h1 class="card-header text-center">New Reservation</h1>
+                <div class="card-body">
+                    {{ include('reservation/_form.html.twig') }}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

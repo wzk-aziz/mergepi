@@ -1,0 +1,85 @@
+<div class="container mt-5">
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    <div class="form-group">
+        {{ form_label(form.eventName, "Event Name") }}
+        {{ form_widget(form.eventName, {'attr': {'class': 'form-control', 'style': 'color: #337ab7;'}}) }}
+
+        {% if form_errors(form.eventName) is not empty %}
+            <div class="alert alert-danger mt-2">
+                {{ form_errors(form.eventName) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.capacity, "Capacity") }}
+        {{ form_widget(form.capacity, {'attr': {'class': 'form-control', 'style': 'color: #337ab7;'}}) }}
+
+        {% if form_errors(form.capacity) is not empty %}
+            <div class="alert alert-danger mt-2">
+                {{ form_errors(form.capacity) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.startDate, "Start date") }}
+        {{ form_widget(form.startDate, {'attr': {'class': 'form-control'}}) }}
+
+        {% if form_errors(form.startDate) is not empty %}
+            <div class="alert alert-danger mt-2">
+                {{ form_errors(form.startDate) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.endDate, "End date") }}
+        {{ form_widget(form.endDate, {'attr': {'class': 'form-control'}}) }}
+
+        {% if form_errors(form.endDate) is not empty %}
+            <div class="alert alert-danger mt-2">
+                {{ form_errors(form.endDate) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.place, "Place") }}
+        {{ form_widget(form.place, {'attr': {'class': 'form-control'}}) }}
+
+        {% if form_errors(form.place) is not empty %}
+            <div class="alert alert-danger mt-2">
+                {{ form_errors(form.place) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.description, "Description") }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control', 'style': 'color: #337ab7;', 'rows': 8}}) }}
+
+        {% if form_errors(form.description) is not empty %}
+            <div class="alert alert-danger mt-2">
+                {{ form_errors(form.description) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+				{{ form_label(form.image, 'Images') }}
+				{{ form_widget(form.image, {'attr': {'class': 'form-control-file','placeholder':'upload_images'}}) }}
+				{{ form_errors(form.image) }}
+			</div>
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary btn-sm">{{ button_label|default('Ajouter') }}</button>
+    </div>
+
+    {{ form_end(form) }}
+
+    <div class="text-center mt-3">
+        <a href="{{ path('app_eventback_index') }}" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

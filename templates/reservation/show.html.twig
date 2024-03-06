@@ -1,0 +1,33 @@
+{% extends 'Front.html.twig' %}
+
+{% block body %}
+    <br><br>
+    <br><br>
+    <div class="text-center">
+        <h1>{{reservation.nom | capitalize}} reservation</h1>
+
+    <div class="table-responsive mx-auto"> <!-- Adding mx-auto class for centering -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>address</th>
+                        <th>Téléphone</th>
+                        <th>Event ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <tr>
+                            <td>{{ reservation.nom }}</td>
+                            <td>{{ reservation.address }}</td>
+                            <td>{{ reservation.phone }}</td>  
+                            <td>{{ reservation.event.id }}</td>
+            </tr>
+        </tbody>
+            </table>
+        </div>
+
+    <a href="{{ path('app_reservation_index') }}">back to list</a>
+
+    {{ include('reservation/_delete_form.html.twig') }}
+{% endblock %}

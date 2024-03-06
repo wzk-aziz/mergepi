@@ -1,0 +1,57 @@
+{% extends 'Back.html.twig' %}
+
+{% block title %}Event{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Event Details</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Image</th>
+                        <td><img src="{{ asset('uploads/' ~ event.image) }}" alt="Event Image" style="max-width: 300px;"></td>
+                    </tr>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ event.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Event Name</th>
+                        <td>{{ event.eventName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Capacity</th>
+                        <td>{{ event.capacity }}</td>
+                    </tr>
+                    <tr>
+                        <th>Start Date</th>
+                        <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>End Date</th>
+                        <td>{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Place</th>
+                        <td>{{ event.place }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ event.description }}</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ path('app_eventback_index') }}" class="btn btn-secondary mr-2">Back to List</a>
+            <a href="{{ path('app_eventback_edit', {'id': event.id}) }}" class="btn btn-primary">Edit</a>
+        </div>
+
+        {{ include('eventback/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

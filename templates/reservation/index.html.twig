@@ -1,0 +1,46 @@
+{% extends 'Front.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block body %}
+   <br><br>
+    <br><br>
+    <div class="text-center">
+        <h1>Reservations</h1>
+
+        <div class="table-responsive mx-auto"> <!-- Adding mx-auto class for centering -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>address</th>
+                        <th>Téléphone</th>
+                        <th>Event ID</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reservation in reservations %}
+                        <tr>
+                            <td>{{ reservation.nom }}</td>
+                            <td>{{ reservation.address }}</td>
+                            <td>{{ reservation.phone }}</td>  
+                            <td>{{ reservation.event.id }}</td>
+                            <td>
+                                <a href="{{ path('app_reservation_show', {'id': reservation.id}) }}">show</a>
+                                <a href="{{ path('app_reservation_edit', {'id': reservation.id}) }}">edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="2">no records found</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <div class="card-footer text-center">
+
+                </div>
+
+{% endblock %}

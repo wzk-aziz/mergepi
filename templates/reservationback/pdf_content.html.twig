@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des reservations</title>  
+    <style>
+        /* Style pour le tableau */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px; /* Ajout de la marge en bas du tableau */
+        }
+        th, td {
+            border: 1px solid red;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: red;
+            color: white;
+        }
+        /* Style pour le nom du site */
+        #site-name {
+            color: red;
+        }
+        /* Style pour le footer */
+        #footer {
+            margin-top: 20px; /* Ajout de la marge en haut du footer */
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1 id="site-name">Khoudh&Het</h1>
+    </div>
+
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>address</th>
+            <th>Téléphone</th>
+            <th>Event ID</th>
+
+        </tr>
+        {% for reservation in reservation %}
+        <tr>
+          
+            <td>{{ reservation.nom }}</td>
+            <td>{{ reservation.address }}</td>
+            <td>{{ reservation.phone }}</td>
+            <td>{{ reservation.event.id }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div id="footer">
+        Généré le {{ "now"|date("d/m/Y H:i:s") }}
+    </div>
+</body>
+</html>

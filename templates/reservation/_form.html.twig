@@ -1,0 +1,12 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+{{ form_row(form, {
+    'attr': {
+        'required': 'required',
+        'pattern': '[a-zA-Z]+',
+        'title': 'Le champ doit contenir uniquement des lettres.'
+    }
+}) }}
+{{ form_rest(form) }}
+<center>  <button class="btn-danger">{{button_label|default('Book') }}</button></center>
+
+{{ form_end(form) }}

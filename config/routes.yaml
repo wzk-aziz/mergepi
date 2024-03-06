@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 index:
   path: /
   controller: App\Controller\DefaultController::index
@@ -5,3 +6,18 @@ search_items:
   path: items/search
   controller: App\Controller\ItemsController::search
   methods: GET
+=======
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+generate_pdf:
+    path: /reservations/pdf
+    controller: App\Controller\ReservationbackController::generatePdf
+app_generate_qr_code:
+    path: '/generate/qr-code'
+    controller: App\Controller\EventController::generateQrCode
+    methods: ['GET'] # Ajoutez cette ligne si nécessaire
+search_by_place:
+    path: searchByPlace
+    controller: App\Controller\EventController::searchByPlace
+>>>>>>> origin/achraf
