@@ -7,7 +7,7 @@
 		<!-- Include your CSS files here -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 		<link
-		rel="stylesheet" href="{{ asset('assetsfront/css/open-iconic-bootstrap.min.css') }}">
+		rel="stylesheet" href="{{ asset('assets/css/open-iconic-bootstrap.min.css') }}">
 		<!-- Other CSS links... -->
 		<link rel="stylesheet" href="{{ asset('assetsfront/css/animate.css') }}">
 		<link rel="stylesheet" href="{{ asset('assetsfront/css/owl.carousel.min.css') }}">
@@ -30,7 +30,7 @@
 		{% block body %}{% endblock %}
 
 		{% include "_partials/_footer.html.twig" %}
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 		<script src="{{ asset('assetsfront/js/jquery.min.js') }}"></script>
 		<script src="{{ asset('assetsfront/js/jquery-migrate-3.0.1.min.js') }}"></script>
 		<script src="{{ asset('assetsfront/js/popper.min.js') }}"></script>
@@ -45,7 +45,8 @@
 		<script src="{{ asset('assetsfront/js/bootstrap-datepicker.js') }}"></script>
 		<script src="{{ asset('assetsfront/js/jquery.timepicker.min.js') }}"></script>
 		<script src="{{ asset('assetsfront/js/scrollax.min.js') }}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script src="{{ asset('assetsfront/js/google-map.js') }}"></script>
 		<script src="{{ asset('assetsfront/js/main.js') }}"></script>
-		<script src="{{ asset('assetsback/lib/jquery-3.7.1.js') }}"></script>
 	</body>
 </html>

@@ -1,52 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>khoudh&het</title>
-		<!-- Include your CSS files here -->
-		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="{{ asset('assets/css/open-iconic-bootstrap.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/animate.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/owl.carousel.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/owl.theme.default.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/magnific-popup.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/aos.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/ionicons.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/bootstrap-datepicker.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/jquery.timepicker.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/flaticon.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/icomoon.css') }}">
-		<link rel="stylesheet" href="{{ asset('assetsfront/css/style.css') }}">
-	</head>
-	<body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
 
-		{% include "_partials/_nav.html.twig" %}
-
-		<div class="container mt-5"> {% block body %}{% endblock %}
-			</div>
-
-			{% include "_partials/_footer.html.twig" %}
-
-			<!-- Include your JS files here -->
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-			<script src="{{ asset('assetsfront/js/jquery.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/jquery-migrate-3.0.1.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/popper.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/bootstrap.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/jquery.easing.1.3.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/jquery.waypoints.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/jquery.stellar.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/owl.carousel.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/jquery.magnific-popup.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/aos.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/jquery.animateNumber.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/bootstrap-datepicker.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/jquery.timepicker.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/scrollax.min.js') }}"></script>
-			<script src="{{ asset('assetsfront/js/main.js') }}"></script>
-			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		</body>
-	</html>
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

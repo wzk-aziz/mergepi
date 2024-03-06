@@ -1,7 +1,3 @@
-index:
-  path: /
-  controller: App\Controller\DefaultController::index
-search_items:
-  path: items/search
-  controller: App\Controller\ItemsController::search
-  methods: GET
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index

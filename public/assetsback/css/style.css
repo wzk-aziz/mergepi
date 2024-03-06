@@ -15,7 +15,6 @@
 }
 
 
-
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -227,16 +226,6 @@
     .content .navbar .navbar-nav .nav-link {
         margin-left: 15px;
     }
-}
-
-.custom-table {
-    background-color: #ffffff;
-    /* White background */
-}
-
-.custom-table thead th {
-    background-color: #f8f9fa;
-    /* Light gray background for table headers */
 }
 
 
