@@ -92,30 +92,36 @@ class FrontController extends AbstractController
         ]);
     }
 
-        #[Route('/{id}/edit', name: 'app_user_edituser', methods: ['GET', 'POST'])]
-        public function edit(Request $request, User $user, EntityManagerInterface $entityManager, Security $security): Response
-        {
-            // Get the currently logged-in user
-            $loggedInUser = $security->getUser();
-        
-            // Compare the identities of the logged-in user and the user being modified
-            if ($loggedInUser !== $user) {
-                // The user being modified is not the same as the logged-in user
-                return $this->redirectToRoute('app_404');
-            }
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+        #[Route('/edit', name: 'app_user_edituser', methods: ['GET', 'POST'])]
+        public function edit(Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager, Security $security): Response
+{
+    // Get the currently logged-in user
+    $loggedInUser = $security->getUser();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+    // Retrieve the User entity using the UserRepository
+    $user = $userRepository->find($loggedInUser->getId());
 
-            return $this->redirectToRoute('app_front', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('front/edituser.html.twig', [
-            'user' => $user,
-            'form' => $form,
-        ]);
+    // Compare the identities of the logged-in user and the user being modified
+    if ($loggedInUser !== $user) {
+        // The user being modified is not the same as the logged-in user
+        return $this->redirectToRoute('app_404');
     }
+
+    $form = $this->createForm(UserType::class, $user);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Save the updated user data to the database
+        $entityManager->flush();
+
+        // Redirect to the user's profile page or any other appropriate page
+        return $this->redirectToRoute('app_front', ['id' => $user->getId()]);
+    }
+
+    return $this->render('front/edituser.html.twig', [
+        'form' => $form->createView(),
+        'user' => $user,
+    ]);
+}
 
 }

@@ -94,6 +94,9 @@ private ?DateTime $endDate;
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    #[ORM\ManyToOne(inversedBy: 'events')]
+    private ?user $User = null;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -235,6 +238,13 @@ private ?DateTime $endDate;
                 ->atPath('endDate')
                 ->addViolation();
         }
+    }
+
+    public function setUser(?user $User): static
+    {
+        $this->User = $User;
+
+        return $this;
     }
     
 }

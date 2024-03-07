@@ -55,6 +55,9 @@ class Annonces
 
     #[ORM\Column]
     private ?int $liked = 0;
+
+    #[ORM\ManyToOne(inversedBy: 'annonces')]
+    private ?User $User = null;
    
   
    /* private $createdAt;
@@ -161,6 +164,18 @@ class Annonces
     public function setLiked(int $liked): static
     {
         $this->liked = $liked;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): static
+    {
+        $this->User = $User;
 
         return $this;
     }
