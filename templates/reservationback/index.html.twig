@@ -1,0 +1,43 @@
+{% extends 'Back.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Reservations</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>address</th>
+                    <th>Téléphone</th>
+                    <th>Event ID</th>
+                    <th>Actions</th> <!-- Added Actions column header -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                    <tr>
+                        <td>{{ reservation.nom }}</td>
+                        <td>{{ reservation.address }}</td>
+                        <td>{{ reservation.phone }}</td>
+                        <td>{{ reservation.event.id }}</td>
+                        <td>
+                            <a href="{{ path('app_reservationback_show', {'id': reservation.id}) }}" class="btn btn-info btn-sm">Show</a>
+                            {{ include('reservationback/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">No records found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+     <div class="text-center"> <!-- Ajout de la classe text-center ici -->
+       
+        <a href="{{ path('generate_pdf') }}" class="btn btn-primary btn-sm">Télécharger PDF</a>
+    </div>
+{% endblock %}

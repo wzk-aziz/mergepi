@@ -1,0 +1,150 @@
+{% extends 'Front.html.twig' %}
+
+{% block title %}
+    <!-- Votre code existant pour le titre -->
+{% endblock %}
+
+{% block body %}
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-12">
+        <body>
+        <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
+            <div class="search-container">
+                <input type="text" id="search-place" placeholder="Rechercher par place..." class="form-control form-control-sm">
+                <div id="search-results"></div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+
+
+                {% for event in event %}
+                    <div class="col-md-4">
+                        <div class="car-wrap rounded ftco-animate">
+                            <div class="img rounded d-flex align-items-end" ></div>
+                            {% if event.image %}
+                                <img class="card-img-top" src="{{ asset('uploads/' ~ event.image) }}" alt="Event image" style="max-width: 200px;">
+                            {% else %}
+                                <span>No Image</span>
+                            {% endif %}
+                            <div class="text">
+                                <h2 class="mb-0"><a href="car-single.html">{{ event.eventName }}</a></h2>
+                                <div class="d-flex mb-3">
+                                    <span class="cat" style="color: black;">{{ event.place }}</span>
+                                    <p class="price ml-auto">{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</p>
+                                    <p class="price ml-auto">{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</p>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <p class="d-flex mb-0 d-block"><a href="{{ path('app_event_show', {'id': event.id}) }}" class="btn btn-secondary py-2 ml-1">Details</a></p>
+                                    <div>
+                                        <form method="post" action="{{ path('generate_qr_code', {'id': event.id}) }}">
+                                            <input type="hidden" name="text" value="
+                                               Nom: {{ event.eventName }}
+                                               Description: {{ event.description }}
+                                               Capacity: {{ event.capacity }}
+                                               Place: {{ event.place }}
+                                            ">
+                                            <button type="submit" class="btn btn-primary btn-sm">Generate QR Code</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
+    <div class="pagination">
+        {{ knp_pagination_render(event, 'event/pagination.html.twig') }}
+    </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+ {{ parent() }}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+   $(document).ready(function(){
+     // Fonction pour charger tous les events
+    function loadAllEvents() {
+        $.ajax({
+            type: 'GET',
+            url: '{{ path('load_all_events') }}',
+            success: function(data){
+                updateTable(data);
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+
+    // Charger tous les events au chargement de la page
+    loadAllEvents();
+
+
+    $('#search-place').keyup(function(){
+        var place = $(this).val();
+
+        if(place != ""){
+            $.ajax({
+                type: 'GET',
+                url: '{{ path('search_by_place') }}',
+                data: {'place': place},
+                success: function(data){
+                    if(data.length > 0){
+                        updateTable(data);
+                    } else {
+                        $('#search-results').html("<p style='font-size: 14px; text-align: center; margin-top: 10px'>Aucun event trouvé pour cette place.</p>");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        } else {
+            // Si le champ de recherche est vide, réinitialisez le tableau pour afficher tous les events
+            updateTable([]);
+        }
+    });
+});
+// Déclarer une variable pour stocker le contenu initial du tableau
+var initialTableContent = $('event-table-body').html();
+
+function updateTable(results) {
+    var html = '';
+
+    if (results.length > 0) {
+        results.forEach(function(event) {
+            html += '<tr>';
+            html += '<td>' + event.eventName + '</td>';
+            html += '<td>' + event.capacity + '</td>';
+            html += '<td>' + event.startDate + '</td>';
+            html += '<td>' + event.endDate + '</td>';
+            html += '<td>' + event.place + '</td>';
+            html += '<td>';
+            html += '</td>';
+            html += '</tr>';
+        });
+    } else {
+        html += '<tr><td colspan="7">Aucun event trouvé pour cette place.</td></tr>';
+    }
+
+    // Placer le contenu initial avant le message "Aucun event trouvé"
+    html = initialTableContent + html;
+
+    $('#event-table-body').html(html);
+}
+
+ </script>
+ 
+{% endblock %}
+
+
