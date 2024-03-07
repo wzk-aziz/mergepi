@@ -31,10 +31,10 @@ class BackController extends AbstractController
     #[Route('/', name: 'app_back')]
     public function index(Security $security): Response
     {
-       /* $user = $security->getUser();
+        $user = $security->getUser();
         if (!$user || !$security->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('app_404');
-        }*/
+        }
         return $this->render('back/index.html.twig', [
             'controller_name' => 'BackController',
         ]);

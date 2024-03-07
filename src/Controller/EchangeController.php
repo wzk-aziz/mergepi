@@ -32,7 +32,7 @@ class EchangeController extends AbstractController
 
     #[Route('/new', name: 'app_echange_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager,MailerInterface $mailer): Response
-    {   $echange = new Echange();
+    {   
         $email = (new Email())
             ->from('Khoudh&Het@esprit.tn')
             ->to('sample-recipient@binaryboxtuts.com')
@@ -41,8 +41,7 @@ class EchangeController extends AbstractController
  
         $mailer->send($email);
 
-        $user = $this->getUser();
-        $echange->setUser($user);
+        $echange = new Echange();
         
         $form = $this->createForm(EchangeType::class, $echange);
         $formData =[

@@ -68,9 +68,22 @@ class InventoryController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_inventory_show', methods: ['GET'])]
-    public function show(Inventory $inventory): Response
+    #[Route('/inventory/{id}', name: 'app_inventory_show', methods: ['GET'])]
+    public function show($id): Response
     {
+        $user = $this->getUser(); // Get the currently logged-in user
+        $inventory = $this->getDoctrine()->getRepository(Inventory::class)->find($id);
+
+        // Check if the inventory exists
+        if (!$inventory) {
+            throw $this->createNotFoundException('Inventory not found');
+        }
+
+        // Check if the inventory belongs to the logged-in user
+        if ($inventory->getUser() !== $user) {
+            throw $this->createAccessDeniedException('Access denied');
+        }
+
         return $this->render('inventory/show.html.twig', [
             'inventory' => $inventory,
         ]);

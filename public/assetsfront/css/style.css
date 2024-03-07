@@ -4,37 +4,6 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-<<<<<<< HEAD
-:root {
-  --blue: #007bff;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #dc3545;
-  --orange: #fd7e14;
-  --yellow: #ffc107;
-  --green: #28a745;
-  --teal: #20c997;
-  --cyan: #17a2b8;
-  --white: #fff;
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-  --primary: #007bff;
-  --secondary: #6c757d;
-  --success: #28a745;
-  --info: #17a2b8;
-  --warning: #ffc107;
-  --danger: #dc3545;
-  --light: #f8f9fa;
-  --dark: #343a40;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-=======
 
  :root {
     --blue: #007bff;
@@ -65,7 +34,6 @@
     --breakpoint-xl: 1200px;
     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
->>>>>>> origin/achraf
 }
 
 *,
@@ -313,12 +281,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-<<<<<<< HEAD
--webkit-appearance: button;
-appearance: button;
-=======
     -webkit-appearance: button;
->>>>>>> origin/achraf
 }
 
 button:not(:disabled),
@@ -10945,21 +10908,12 @@ a.text-dark:focus {
 }
 
 body {
-<<<<<<< HEAD
-  font-family: "Poppins", Arial, sans-serif;
-  background: #fff;
-  font-size: 16px;
-  line-height: 1.8;
-  font-weight: 400;
-
-=======
     font-family: "Poppins", Arial, sans-serif;
     background: #fff;
     font-size: 16px;
     line-height: 1.8;
     font-weight: 400;
-    color: #000000;
->>>>>>> origin/achraf
+    color:#000000;
 }
 
 body.menu-show {
@@ -11361,13 +11315,8 @@ h5,
 }
 
 .slider-text .icon-wrap .heading-title span {
-<<<<<<< HEAD
-  font-family: "Poppins", Arial, sans-serif;
-  color: #343a40;
-=======
     font-family: "Poppins", Arial, sans-serif;
     color: #FFFFFF;
->>>>>>> origin/achraf
 }
 
 .slider-text p {
@@ -13453,24 +13402,7 @@ textarea.form-control {
     color: #000000;
     font-style: italic;
 }
-.pagination-container {
-  text-align: center;
-  margin-top: 20px; /* Adjust as needed */
-}
-.pagination {
-  display: inline-block;
-}
-.pagination a {
-  color: #000;
-  padding: 5px 10px;
-  text-decoration: none;
-  border: 1px solid #ccc;
-  margin: 0 2px;
-  border-radius: 3px;
-}
-.pagination a:hover {
-  background-color: #f0f0f0;
-}
+
 #ftco-loader {
     position: fixed;
     width: 96px;
@@ -13565,23 +13497,6 @@ textarea.form-control {
 }
 
 @keyframes loader-dash {
-<<<<<<< HEAD
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35px;
-  }
-
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -136px;
-  }
-  
-=======
     0% {
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0;
@@ -13594,5 +13509,4 @@ textarea.form-control {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -136px;
     }
->>>>>>> origin/achraf
 }

@@ -1,5 +1,4 @@
 /********** Template CSS **********/
-
 :root {
     --primary: #EB1616;
     --secondary: #191C24;
@@ -17,7 +16,6 @@
 
 
 /*** Spinner ***/
-
 #spinner {
     opacity: 0;
     visibility: hidden;
@@ -33,7 +31,6 @@
 
 
 /*** Button ***/
-
 .btn {
     transition: .5s;
 }
@@ -66,13 +63,12 @@
 
 
 /*** Layout ***/
-
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 300px;
+    width: 250px;
     height: 100vh;
     overflow-y: auto;
     background: var(--secondary);
@@ -91,12 +87,15 @@
     .sidebar {
         margin-left: 0;
     }
+
     .sidebar.open {
         margin-left: -250px;
     }
+
     .content {
         width: calc(100% - 250px);
     }
+
     .content.open {
         width: 100%;
         margin-left: 0;
@@ -107,9 +106,11 @@
     .sidebar {
         margin-left: -250px;
     }
+
     .sidebar.open {
         margin-left: 0;
     }
+
     .content {
         width: 100%;
         margin-left: 0;
@@ -118,7 +119,6 @@
 
 
 /*** Navbar ***/
-
 .sidebar .navbar .navbar-nav .nav-link {
     padding: 7px 20px;
     color: var(--light);
@@ -228,19 +228,8 @@
     }
 }
 
-.custom-table {
-    background-color: #ffffff;
-    /* White background */
-}
-
-.custom-table thead th {
-    background-color: #f8f9fa;
-    /* Light gray background for table headers */
-}
-
 
 /*** Date Picker ***/
-
 .bootstrap-datetimepicker-widget.bottom {
     top: auto !important;
 }
@@ -269,7 +258,6 @@
 
 
 /*** Testimonial ***/
-
 .progress .progress-bar {
     width: 0px;
     transition: 2s;
@@ -277,7 +265,6 @@
 
 
 /*** Testimonial ***/
-
 .testimonial-carousel .owl-dots {
     margin-top: 24px;
     display: flex;
