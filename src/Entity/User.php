@@ -101,6 +101,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'User', targetEntity: Reservation::class)]
     private Collection $reservations;
 
+    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Reclamation::class)]
+    private Collection $reclamations;
+
+    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Echange::class)]
+    private Collection $echanges;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -226,6 +232,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->annonces = new ArrayCollection();
         $this->events = new ArrayCollection();
         $this->reservations = new ArrayCollection();
+        $this->reclamations = new ArrayCollection();
+        $this->echanges = new ArrayCollection();
 
     }
     public function setCreatedat(\DateTimeInterface $createdat): static
@@ -385,6 +393,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($reservation->getUser() === $this) {
                 $reservation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reclamation>
+     */
+    public function getReclamations(): Collection
+    {
+        return $this->reclamations;
+    }
+
+    public function addReclamation(Reclamation $reclamation): static
+    {
+        if (!$this->reclamations->contains($reclamation)) {
+            $this->reclamations->add($reclamation);
+            $reclamation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReclamation(Reclamation $reclamation): static
+    {
+        if ($this->reclamations->removeElement($reclamation)) {
+            // set the owning side to null (unless already changed)
+            if ($reclamation->getUser() === $this) {
+                $reclamation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Echange>
+     */
+    public function getEchanges(): Collection
+    {
+        return $this->echanges;
+    }
+
+    public function addEchange(Echange $echange): static
+    {
+        if (!$this->echanges->contains($echange)) {
+            $this->echanges->add($echange);
+            $echange->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEchange(Echange $echange): static
+    {
+        if ($this->echanges->removeElement($echange)) {
+            // set the owning side to null (unless already changed)
+            if ($echange->getUser() === $this) {
+                $echange->setUser(null);
             }
         }
 

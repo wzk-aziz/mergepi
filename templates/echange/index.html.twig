@@ -1,0 +1,81 @@
+{% extends 'Back.html.twig' %}
+
+{% block title %}Echange{% endblock %}
+
+
+{% block body %}
+<div class="input-group search-area">
+    <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+    <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+</div>
+ <script>
+    function filterEchanges() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const echanges = document.querySelectorAll('.table tbody tr');
+
+        echanges.forEach(echange => {
+            const cells = echange.querySelectorAll('td');
+            let found = false;
+
+            cells.forEach(cell => {
+                const content = cell.textContent.toLowerCase();
+                if (content.includes(searchTerm)) {
+                    found = true;
+                }
+            });
+
+            echange.style.display = found ? '' : 'none';
+        });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', filterEchanges);
+</script>
+    <h1>Echange </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+              
+                <th>Id</th> 
+                <th>Etat</th>
+                <th>Offre</th>
+                <th>image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for echange in echanges %}
+            <tr>
+
+               
+                <td>{{ echange.id }}</td>  
+                <td>{{ echange.etat }}</td>
+                <td>{{ echange.offre }}</td>
+                <td>
+                {% if echange.image %}
+                <img src="{{ asset('assetsfront/uploads/' ~ echange.image) }}" style="width: 20%; height: 20%;" alt="Echange Image" class="img-fluid">
+                {% else %}
+                 <p>No image available</p>
+                {% endif %}
+                </td>    
+                
+                <td>
+                    
+                    <a href="{{ path('app_echange_edit', {'id': echange.id}) }}">edit</a>
+                </td>
+                 <td>
+                    
+                    <a href="{{ path('app_echange_show', {'id': echange.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">pas de contenu</td>
+            </tr>
+        {% endfor %}
+        
+        </tbody>
+    </table>
+
+{% endblock %}

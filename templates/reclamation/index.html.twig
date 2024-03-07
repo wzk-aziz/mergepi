@@ -1,0 +1,39 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Reclamation index{% endblock %}
+
+{% block body %}
+    <h1>Reclamation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Sujet</th>
+                <th>Details</th>
+                <th>date</th>
+                <th>actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            <tr>
+                <td>{{ reclamation.id }}</td>
+                <td>{{ reclamation.nom }}</td>
+                <td>{{ reclamation.sujet }}</td>
+                <td>{{ reclamation.details }}</td>
+                <td>{{ reclamation.date|date('Y-m-d H:i:s') }}</td>
+                <td>
+                    <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}">show</a>
+
+        {% endfor %}
+        <tr>
+                <td colspan="5">pas de contenu</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}

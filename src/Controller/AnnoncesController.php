@@ -48,6 +48,8 @@ class AnnoncesController extends AbstractController
     {
         // Créez une nouvelle instance de votre entité annonce
         $annonce = new Annonces();
+        $user = $this->getUser();
+        $annonce->setUser($user);
     
         // Définissez la date de publication sur la date actuelle
         $annonce->setDatedepub(new \DateTime());

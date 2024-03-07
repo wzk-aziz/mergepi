@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Security;
 
 #[Route('/inventory')]
 class InventoryController extends AbstractController
@@ -40,8 +41,13 @@ class InventoryController extends AbstractController
 
     #[Route('/new', name: 'app_inventory_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $inventory = new Inventory();
+    {   
+     $inventory = new Inventory();
+
+        $user = $this->getUser();
+        $inventory->setUser($user);
+    
+        
         $inventory->setAddDate(new \DateTime());
 
         $form = $this->createForm(InventoryType::class, $inventory, [

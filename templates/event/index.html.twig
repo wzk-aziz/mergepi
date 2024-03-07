@@ -10,12 +10,30 @@
             <div class="row">
             <div class="col-md-12">
         <body>
-        <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-            <div class="search-container">
-                <input type="text" id="search-place" placeholder="Rechercher par place..." class="form-control form-control-sm">
-                <div id="search-results"></div>
-            </div>
+         <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+    <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+</div>
+ 
         </div>
+
+
+    </div>
+  
+ <script>
+        function filterEvents() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const events = document.querySelectorAll('.car-wrap');
+
+            events.forEach(event => {
+                const eventName = event.querySelector('h2 a').textContent.toLowerCase();
+                const place = event.querySelector('.cat').textContent.toLowerCase();
+                const visible = eventName.includes(searchTerm) || place.includes(searchTerm);
+                event.style.display = visible ? '' : 'none';
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterEvents);
+    </script>
 
 
     </div>

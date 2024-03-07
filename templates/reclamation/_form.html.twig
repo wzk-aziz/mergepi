@@ -1,0 +1,40 @@
+{#
+{{form_start(form,{'attr':{'novalidate':'novalodate'}})}}
+    {{ form_widget(form) }}
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+#}
+
+<div class="row justify-content-center">
+	<div class="col-md-8 col-lg-6">
+		{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+		<div>
+			{{ form_label(form.nom) }}
+			{{ form_errors(form.nom) }}
+			{{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'nom'}}) }}
+		</div>
+
+
+		<div>
+			{{ form_label(form.sujet) }}
+			{{ form_errors(form.sujet) }}
+			{{ form_widget(form.sujet, {'attr': {'class': 'form-control', 'placeholder': 'sujet'}}) }}
+		</div>
+
+        <div>
+			{{ form_label(form.details) }}
+			{{ form_errors(form.details) }}
+			{{ form_widget(form.details, {'attr': {'class': 'form-control', 'placeholder': 'details'}}) }}
+		</div>
+		
+        
+		<div class="row justify-content-center mt-3">
+			<div class="col-md-8 col-lg-6">
+				<button class="btn btn-primary w-100" id="my-custom-button-id">{{ button_label|default('Submit') }}</button>
+			</div>
+		</div>
+		{{ form_end(form) }}
+</div>
+</div>

@@ -1,0 +1,142 @@
+
+{% extends 'Front.html.twig' %}
+
+{% block title %}New Echange{% endblock %}
+
+{% block body %}
+
+<div class="hero-wrap ftco-degree-bg bg-dark" style="background-image: url('{{ asset('assetsfront/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.1"></div>
+	<section class="ftco-section ftco-about bg-dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url('{{ asset('assets/images/about.jpg') }}'); min-height: 10px;"></div>
+
+				<div class="col-md-6">
+					<div class="heading-section pl-md-5">
+					
+						<h2 class="mb-4">Creer une nouvelle Echange</h2>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    {{ include('echange/_form.html.twig') }}
+
+    <a href="{{ path('app_echange_index') }}">back to list</a>
+{% endblock %}
+
+
+{#
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>khoudh&het</title>
+		<!-- Include your CSS files here -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+		<link
+		rel="stylesheet" href="{{ asset('assets/css/open-iconic-bootstrap.min.css') }}">
+		<!-- Other CSS links... -->
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/animate.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/owl.carousel.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/owl.theme.default.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/magnific-popup.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/aos.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/ionicons.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/bootstrap-datepicker.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/jquery.timepicker.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/flaticon.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/icomoon.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('assetsfront/css/style.css') }}">
+	</head>
+    <body>
+
+
+		<!-- Navbar -->
+
+		{% include "_partials/_nav.html.twig" %}
+		<!-- Hero section -->
+		{% block body %}
+		<div class="container-fluid bg-dark">
+        <div class="hero-wrap ftco-degree-bg" style="background-image: url('{{ asset('assetsfront/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5"></div>
+	<!-- About section -->
+	<section class="ftco-section ftco-about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url('{{ asset('assets/images/about.jpg') }}'); min-height: 10px;"></div>
+
+				<div class="col-md-6">
+					<div class="heading-section pl-md-5">
+					
+						<h2 class="mb-4">Creer une nouvelle Echange</h2>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    
+<div class="row justify-content-center">
+	<div class="col-md-8 col-lg-6">
+  <div>
+			{{ form_label(form.offre) }}
+			{{ form_errors(form.offre) }}
+			{{ form_widget(form.offre, {'attr': {'class': 'form-control', 'placeholder': 'offre'}}) }}
+		</div>
+
+		 <div>
+			{{ form_label(form.image) }}
+			{{ form_errors(form.image) }}
+			{{ form_widget(form.image, {'attr': {'class': 'form-control', 'placeholder': 'image'}}) }}
+		</div>
+
+		<div class="row justify-content-center mt-3">
+			<div class="col-md-8 col-lg-6">
+				<button class="btn btn-primary w-100" id="my-custom-button-id">{{ button_label|default('Submit') }}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+  h1 {
+
+    text-align: center;
+  }
+hr {
+    border: none;
+    background-color: transparent;
+    height: 1px;
+    width: 2%;
+  
+</style>
+        <a href="{{ path('app_echange_indexf', {'id': echange.id}) }}">voir liste des echanges</a> 
+        {% endblock %}
+
+		{% include "_partials/_footer.html.twig" %}
+
+		<script src="{{ asset('assetsfront/js/jquery.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/jquery-migrate-3.0.1.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/popper.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/jquery.easing.1.3.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/jquery.waypoints.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/jquery.stellar.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/owl.carousel.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/jquery.magnific-popup.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/aos.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/jquery.animateNumber.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/bootstrap-datepicker.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/jquery.timepicker.min.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/scrollax.min.js') }}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script src="{{ asset('assetsfront/js/google-map.js') }}"></script>
+		<script src="{{ asset('assetsfront/js/main.js') }}"></script>
+	</body>
+</html>#}

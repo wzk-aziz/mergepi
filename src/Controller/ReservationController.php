@@ -27,6 +27,10 @@ class ReservationController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $reservation = new Reservation();
+
+        $user = $this->getUser();
+        $reservation->setUser($user);
+
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
 
