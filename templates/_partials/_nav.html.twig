@@ -1,8 +1,4 @@
-<!-- Navbar -->
-<nav
-	class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	<!-- Navbar content... -->
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,8 +18,68 @@
 </head>
 <body>
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <!-- Navbar content -->
+    <div class="container">
+        <a class="navbar-brand" href="/">Khoud&<span>Het</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{{ path('app_front') }}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ path('app_annonces_index') }}" class="nav-link">annonce</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Inventory
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ path('app_inventory_index') }}">View Inventory</a>
+                        <a class="dropdown-item" href="{{ path('app_items_index') }}">View Items</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ path('app_commnet_index') }}" class="nav-link">commentaire</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ path('app_front') }}" class="nav-link">Echange</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ path('app_event_index') }}" class="nav-link">Events</a>
+                </li>
+
+                <li class="nav-item dropdown active">
+                    <a href="{{ path('app_front') }}" class="nav-link">Profile</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% if app.user %}
+                            <a class="dropdown-item" href="{{ path('app_user_showuser') }}"> my profile </a>
+                            <a class="dropdown-item" href="{{ path('app_user_edituser', {'id': user.id}) }}">edit profile</a>
+                            <a class="dropdown-item" href="{{ path('app_logout') }}">log out</a>
+                            {% if app.user and is_granted('ROLE_ADMIN') %}
+                                <a class="dropdown-item" href="{{ path('app_back') }}">backend</a>
+                            {% endif %}
+                        {% else %}
+                            <a class="dropdown-item" href="{{ path('app_register') }}">register</a>
+                            <a class="dropdown-item" href="{{ path('app_login') }}"> login </a>
+                        {% endif %}
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ path('app_front') }}" class="nav-link">reclamation</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
 <!-- Other content of your page -->
@@ -33,71 +89,3 @@
 
 </body>
 </html>
-
-	<div class="container">
-		<a class="navbar-brand" href="/">Khoud&<span>Het</span>
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="oi oi-menu"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="ftco-nav">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<a href="{{ path('app_front') }}" class="nav-link">Home</a>
-				</li>
-				<li class="nav-item">
-					<a href="{{ path('app_annonces_index') }}" class="nav-link">annonce</a>
-				</li>
-<<<<<<< HEAD
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Inventory
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{{ path('app_inventory_index') }}">View Inventory</a>
-						<a class="dropdown-item" href="{{ path('app_items_index') }}">View Items</a>
-						
-					</div>
-=======
-				<li class="nav-item">
-					<a href="{{ path('app_commnet_index') }}" class="nav-link">commentaire</a>
->>>>>>> origin/aziz
-				</li>
-				<li class="nav-item">
-					<a href="{{ path('app_front') }}" class="nav-link">Echange</a>
-				</li>
-				<li class="nav-item">
-<<<<<<< HEAD
-					<a href="{{ path('app_event_index') }}" class="nav-link">Events</a>
-=======
-					<a href="{{ path('app_front') }}" class="nav-link">evenement</a>
->>>>>>> origin/aziz
-				</li>
-				<li class="nav-item dropdown active">
-					<a href="{{ path('app_front') }}" class="nav-link">Profile</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						{% if app.user %}
-                		<a class="dropdown-item" href="{{ path('app_user_showuser') }}"> my profile </a>
-						
-    					<a class="dropdown-item" href="{{ path('app_user_edituser', {'id': user.id}) }}">edit profile</a>
-						<a class="dropdown-item" href="{{ path('app_logout') }}">log out</a>
-						{% if app.user and is_granted('ROLE_ADMIN') %}
-						<a class="dropdown-item" href="{{ path('app_back') }}">backend</a>
-						{% endif %}
-						{% else %}
-						<a class="dropdown-item" href="{{ path('app_register') }}">register</a>
-						<a class="dropdown-item" href="{{ path('app_login') }}"> login </a>
-						{% endif %}
-						
-					</div>
-				</li>
-				<li class="nav-item">
-					<a href="{{ path('app_front') }}" class="nav-link">reclamation</a>
-				</li>
-				
-			</ul>
-
-		</div>
-	</div>
-</nav>

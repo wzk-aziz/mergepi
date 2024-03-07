@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-<<<<<<< HEAD
+
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -21,20 +21,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-=======
-use App\Repository\AnnoncesRepository;
->>>>>>> origin/aziz
+
+
 
 #[Route('/back')]
 class BackController extends AbstractController
 {
-<<<<<<< HEAD
+
     #[Route('/', name: 'app_back')]
     public function index(Security $security): Response
-=======
-    #[Route('/back', name: 'app_back')]
-    public function index(AnnoncesRepository $annoncesRepository): Response
->>>>>>> origin/aziz
     {
         $user = $security->getUser();
         if (!$user || !$security->isGranted('ROLE_ADMIN')) {
@@ -42,9 +37,8 @@ class BackController extends AbstractController
         }
         return $this->render('back/index.html.twig', [
             'controller_name' => 'BackController',
-            'annonces' => $annoncesRepository->findAll(),
         ]);
-}
+    }
 
     #[Route('/404', name: 'app_404')]
     public function error(): Response
@@ -55,7 +49,7 @@ class BackController extends AbstractController
     }
 
     #[Route('/register', name: 'app_registerback')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager,Security $security): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, Security $security): Response
     {
         $user = $security->getUser();
         if (!$user || !$security->isGranted('ROLE_ADMIN')) {
@@ -137,34 +131,32 @@ class BackController extends AbstractController
         ]);
     }
     #[Route('/{id}', name: 'app_user_delete', methods: ['GET', 'POST'])]
-public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
-{
-    if ($request->isMethod('POST')) {
+    public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    {
+        if ($request->isMethod('POST')) {
+            $entityManager->remove($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_user_showall', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('back/deleteuser.html.twig', [
+            'user' => $user,
+        ]);
+    }
+    #[Route('/{id}/tool', name: 'app_user_deletetool', methods: ['GET', 'POST'])]
+    public function deletetool(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    {
+        $userRepository = $entityManager->getRepository(User::class);
+        $user = $userRepository->find($user);
+
+        if (!$user) {
+            throw $this->createNotFoundException('User not found');
+        }
+
         $entityManager->remove($user);
         $entityManager->flush();
 
         return $this->redirectToRoute('app_user_showall', [], Response::HTTP_SEE_OTHER);
     }
-
-    return $this->render('back/deleteuser.html.twig', [
-        'user' => $user,
-    ]);
-}
-#[Route('/{id}/tool', name: 'app_user_deletetool', methods: ['GET', 'POST'])]
-public function deletetool(Request $request, User $user, EntityManagerInterface $entityManager): Response
-{
-    $userRepository = $entityManager->getRepository(User::class);
-    $user = $userRepository->find($user);
-
-    if (!$user) {
-        throw $this->createNotFoundException('User not found');
-    }
-
-    $entityManager->remove($user);
-    $entityManager->flush();
-
-    return $this->redirectToRoute('app_user_showall', [], Response::HTTP_SEE_OTHER);
-}
-
-
 }

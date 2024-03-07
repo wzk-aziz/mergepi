@@ -11,11 +11,9 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
 /**
  * @extends ServiceEntityRepository<User>
-<<<<<<< HEAD
+
 * @implements PasswordUpgraderInterface<User>
-=======
- * @implements PasswordUpgraderInterface<User>
->>>>>>> origin/laaroussi-items
+
  *
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
  * @method User|null findOneBy(array $criteria, array $orderBy = null)
@@ -43,7 +41,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->getEntityManager()->flush();
     }
 
-<<<<<<< HEAD
+
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */
@@ -68,7 +66,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //            ->getOneOrNullResult()
 //        ;
 //    }
-=======
+
     //    /**
     //     * @return User[] Returns an array of User objects
     //     */
@@ -93,5 +91,4 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     //            ->getOneOrNullResult()
     //        ;
     //    }
->>>>>>> origin/laaroussi-items
 }

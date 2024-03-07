@@ -38,10 +38,6 @@
             "./migrations/.gitignore"
         ]
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/aziz
     "google/recaptcha": {
         "version": "1.3",
         "recipe": {
@@ -49,18 +45,9 @@
             "branch": "main",
             "version": "1.1",
             "ref": "e5a4aa21f2e98d7440ae9aab6b56e307f99dd084"
-<<<<<<< HEAD
-        },
-        "files": [
-            "./config/packages/google_recaptcha.yaml"
-        ]
-    },
-    "gregwar/captcha-bundle": {
-        "version": "v1.0.0"
-=======
         }
->>>>>>> origin/aziz
     },
+    
     "karser/karser-recaptcha3-bundle": {
         "version": "0.1",
         "recipe": {
@@ -68,21 +55,13 @@
             "branch": "main",
             "version": "0.1",
             "ref": "c51ce07c10331d506762efe25b6f5843c1a5ea17"
-<<<<<<< HEAD
         },
         "files": [
             "./config/packages/karser_recaptcha3.yaml"
         ]
-=======
-    "knplabs/knp-paginator-bundle": {
-        "version": "v5.9.0"
->>>>>>> origin/achraf
-=======
-        }
     },
     "knplabs/knp-paginator-bundle": {
         "version": "v5.9.0"
->>>>>>> origin/aziz
     },
     "phpunit/phpunit": {
         "version": "9.6",
@@ -263,7 +242,7 @@
         ]
     },
     "symfony/stimulus-bundle": {
-        "version": "2.14",
+        "version": "2.16",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -303,7 +282,7 @@
         ]
     },
     "symfony/ux-turbo": {
-        "version": "v2.14.2"
+        "version": "v2.16.0"
     },
     "symfony/validator": {
         "version": "5.4",
@@ -330,19 +309,6 @@
             "./config/routes/web_profiler.yaml"
         ]
     },
-<<<<<<< HEAD
-    "symfony/webapp-pack": {
-        "version": "1.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "1.0",
-            "ref": "aece95c8a188f6e6d04f01ccb8678d1764fd2642"
-        },
-        "files": [
-            "./config/packages/messenger.yaml"
-        ]
-    },
     "symfonycasts/reset-password-bundle": {
         "version": "1.21",
         "recipe": {
@@ -356,10 +322,8 @@
         ]
     },
     "symfonycasts/verify-email-bundle": {
-        "version": "v1.16.1"
+        "version": "v1.16.2"
     },
-=======
->>>>>>> origin/aziz
     "twig/extra-bundle": {
         "version": "v3.8.0"
     },
@@ -370,9 +334,6 @@
             "branch": "main",
             "version": "1.5",
             "ref": "f604d862b3ce4434d131a0e9b3a2eb7bb1784aff"
-        },
-        "files": [
-            "./config/packages/recaptcha.yaml"
-        ]
+        }
     }
 }

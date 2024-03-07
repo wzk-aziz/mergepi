@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 index:
   path: /
   controller: App\Controller\DefaultController::index
@@ -7,7 +6,7 @@ search_items:
   path: items/search
   controller: App\Controller\ItemsController::search
   methods: GET
-=======
+
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
@@ -21,9 +20,7 @@ app_generate_qr_code:
 search_by_place:
     path: searchByPlace
     controller: App\Controller\EventController::searchByPlace
->>>>>>> origin/achraf
-=======
+
 app_annoncesback_show:
     path: '/annoncesback/{id}'
     controller: 'App\Controller\AnnoncesbackController::show'
->>>>>>> origin/aziz

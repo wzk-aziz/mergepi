@@ -2,16 +2,21 @@
 
 namespace App\Entity;
 
+use Assert\GreaterThanOrEqual;
+use Doctrine\ORM\Mapping as ORM;
 use App\Repository\InventoryRepository;
-use Doctrine\Common\Collections\ArrayCollection;
+
 use Doctrine\Common\Collections\Collection;
 
-use Doctrine\ORM\Mapping as ORM;
-use Assert\NotBlank;
-use Assert\Length;
-use Assert\GreaterThanOrEqual;
-use Assert\Type;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints\Type;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\EqualTo;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Positive;
+
 
 #[ORM\Entity(repositoryClass: InventoryRepository::class)]
 class Inventory
